@@ -1,5 +1,6 @@
 import React from 'react';
 //https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm
+import { FormData } from './FormComponent.jsx';
 class App extends React.Component {
 constructor(props){
     super(props);
@@ -56,6 +57,7 @@ setStateHandler (){
         "name":"stateSetBar",
         "age":"300"
     };
+    
     var myArray = this.state.data;
     myArray.push(item);
     this.setState({data:myArray})
@@ -77,8 +79,10 @@ setStateHandler (){
                     {this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
                     </tbody>
                 </table>
+                <label>name</label>
+                <input type="text" value={this.state.}
                 <button onClick={this.setStateHandler}> Set State </button>
-
+                <FormData/>
             </div>
         );
     }
