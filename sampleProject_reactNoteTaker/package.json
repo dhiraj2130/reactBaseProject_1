@@ -6,13 +6,13 @@
   "scripts": {
     "start": "webpack-dev-server --hot",
     "test": "mocha ./src/test/**/*.test.js --recursive --watch --compilers js:babel-core/register"
-
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
+    "expect-jsx": "^3.0.0",
     "history": "^1.13.1",
     "jquery": "^3.1.1",
     "react": "^15.4.1",
