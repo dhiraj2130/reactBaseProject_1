@@ -29,7 +29,7 @@ var Profile = React.createClass({
     },
     handleAddNote: function(newNote){
         this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote);
-    }
+    },
     render:function(){
         return (
             <div className="row">
