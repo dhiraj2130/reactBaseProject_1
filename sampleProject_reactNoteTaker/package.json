@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot",
+    "test": "mocha ./src/test/**/*.test.js --recursive --watch --compilers js:babel-core/register"
+
   },
   "author": "",
   "license": "ISC",
@@ -14,9 +16,14 @@
     "history": "^1.13.1",
     "jquery": "^3.1.1",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react-dom": "^15.4.2",
     "react-router": "^1.0.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0",
+    "react-addons-test-utils": "^15.4.2"
   }
 }

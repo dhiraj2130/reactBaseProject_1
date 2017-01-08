@@ -1,5 +1,5 @@
 var config = {
-    entry: './app/components/app.js',
+    entry: './src/app/components/app.js',
 
     output: {
         path:'./',
@@ -8,7 +8,7 @@ var config = {
 
     devServer: {
         inline: true,
-        port: 8095
+        port: 8090
     },
 
     module: {
