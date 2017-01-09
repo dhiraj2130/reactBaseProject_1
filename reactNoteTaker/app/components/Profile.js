@@ -24,14 +24,14 @@ var Profile = React.createClass({
         var childRef = this.ref.child(this.props.params.username);
        // console.log("heeo "+ childRef);
         this.bindAsArray(childRef, 'notes');
-console.log(this.props.params.username);
+
         helper.getGitHubInfo(this.props.params.username)
             .then(function(data){
                 this.setState({
                     bio:data.bio,
                     repos:data.repos
-                }.bind(this))
-            })
+                })
+            }.bind(this))
     },
     componentWillUnmount : function(){
         this.unbind('notes');
