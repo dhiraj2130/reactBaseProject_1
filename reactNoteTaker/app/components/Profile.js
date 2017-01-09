@@ -8,14 +8,15 @@ var UserProfile = require('./Github/UserProfile');
 var Notes = require('./Notes/Notes');
 var ReactFireMixin = require('reactfire');
 var Firebase = require('firebase');
+var helper = require('../utils/helper');
 
 var Profile = React.createClass({
     mixins:[ReactFireMixin],
     getInitialState : function(){
         return {
             notes:[],
-            bio:{ name:"dhiraj default value "},
-            repos :['a','b','c']
+            bio:{},
+            repos :[]
         }
     },
     componentDidMount : function(){
@@ -23,6 +24,14 @@ var Profile = React.createClass({
         var childRef = this.ref.child(this.props.params.username);
        // console.log("heeo "+ childRef);
         this.bindAsArray(childRef, 'notes');
+console.log(this.props.params.username);
+        helper.getGitHubInfo(this.props.params.username)
+            .then(function(data){
+                this.setState({
+                    bio:data.bio,
+                    repos:data.repos
+                }.bind(this))
+            })
     },
     componentWillUnmount : function(){
         this.unbind('notes');
@@ -31,7 +40,10 @@ var Profile = React.createClass({
         this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote);
     },
     render:function(){
+
+
         return (
+        console.log('Repos',this.props.repos),
             <div className="row">
                 <div className="col-md-4">
                     <UserProfile username={this.props.params.username} bio={this.state.bio}/>

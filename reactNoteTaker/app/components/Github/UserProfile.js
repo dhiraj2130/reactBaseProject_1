@@ -3,11 +3,11 @@ var React = require('react');
 var UserProfile = React.createClass({
     render:function(){
         return(
+            console.log('BIO',this.props.bio),
             <div>
                 <p> UserProfile </p>
                 <p> Username: {this.props.username} </p>
-                <p> Bio : { this.props.bio.name } </p>
-                 </div>
+            </div>
         )
 
     }
