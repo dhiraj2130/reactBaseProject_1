@@ -3,10 +3,13 @@ var React = require('react');
 var UserProfile = React.createClass({
     render:function(){
         return(
-            console.log('BIO',this.props.bio),
+
             <div>
-                <p> UserProfile </p>
-                <p> Username: {this.props.username} </p>
+                <ul className="list-group">
+                    {this.props.bio.avatar_url && <li className="list-group-item"><img src={this.props.bio.avatar_url}
+                    className="img-responsive"/></li> }
+
+                </ul>
             </div>
         )
 
