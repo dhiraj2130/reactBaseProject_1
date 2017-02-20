@@ -1,6 +1,4 @@
-/**
- * Created by dhiraj on 09/01/2017.
- */
+
 var React = require('react')
 var Router = require('react-router');
 

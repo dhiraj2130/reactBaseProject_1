@@ -1,13 +1,9 @@
-/**
- * Created by dhiraj.kumar on 30/12/2016.
- */
+
 var React = require('react');
 var NotesList = React.createClass({
-
     render:function(){
-
         var notes = this.props.notes.map(function(note,index){
-        return <li className="list-group-item" key={index}>{note['.value']}</li>
+        return <li className="list-group-item" key={index}>{note}</li>
          })
 
         return(

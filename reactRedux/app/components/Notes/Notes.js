@@ -4,10 +4,9 @@ var AddNote = require('./AddNote');
 
 var Notes = React.createClass({
     render:function(){
-        console.log('Notes : ', this.props.notes);
         return(
             <div> 
-             <h3> Notes for { this.props.username }</h3>
+             <h3> Notes </h3>
             <AddNote username={this.props.username} addNote={this.props.addNote}/>
                 <NotesList notes={this.props.notes}/>
 

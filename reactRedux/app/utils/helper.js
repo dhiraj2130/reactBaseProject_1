@@ -1,6 +1,4 @@
-/**
- * Created by dhiraj on 09/01/2017.
- */
+
 var axios  = require('axios');
 function getRepos(username){
 return axios.get('https://api.github.com/users/' + username + '/repos');
