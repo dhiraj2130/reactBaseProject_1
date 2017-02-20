@@ -17,8 +17,8 @@ class  Bio extends React.Component{
        return (
         <div>
             <h3> Profile </h3>
-            <div><label>Name : </label><b>{this.props.name}</b></div>
-           <div> <label>Address : </label><b>{this.props.address}</b></div>
+            <div><label>Name : </label>{this.props.name}</div>
+           <div><label>Address : </label>{this.props.address}</div>
             <div className="input-group">
                 <input type="text" className="form-control" placeholder="Change Address" ref={this.setRef.bind(this)}/>
                 <span className='input-btn-group'>

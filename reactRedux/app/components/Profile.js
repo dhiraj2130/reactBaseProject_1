@@ -3,22 +3,23 @@ var React = require('react');
 var Router = require('react-router');
 var Notes = require('./Notes/Notes');
 var helper = require('../utils/helper');
+import { connect } from 'react-redux';
 
 import Bio from './Bio/Bio';
 
-import { store } from '../store';
+//import { store } from '../store';
 
+store.subscribe(() =>{
+    "use strict";
+    console.log("store change",store.getState())
+})
 
-//
-// store.subscribe(() =>{
-//     "use strict";
-//     console.log("store change",store.getState())
-// })
-//
-// store.dispatch({type:"INC",payload : 1});
+//store.dispatch({type:"ADD_NOTE",payload : 'note1'});
+store.dispatch({type:"CHANGE_ADDRESS",payload : 'address1'});
+store.dispatch({type:"CHANGE_ADDRESS",payload : 'address2'});
+
 
 var Profile = React.createClass({
-
     getInitialState : function(){
         return {
             notes:['note1','note2','note3'],
@@ -26,7 +27,6 @@ var Profile = React.createClass({
                 name:'dhiraj',
                 address:'sydney'
             },
-            repos :[]
         }
     },
     componentDidMount : function(){
@@ -47,17 +47,12 @@ var Profile = React.createClass({
         })
     },
     handleAddNote: function(newNote){
-        //this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote);
-
         //this.state.notes = [...this.state.notes,newNote]; this will not work
         this.setState({
             notes:[...this.state.notes, newNote],
         })
-
     },
     render:function(){
-
-
         return (
             <div className="row">
                 <div className="col-md-6">

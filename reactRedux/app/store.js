@@ -1,4 +1,6 @@
-import  { createStore } from 'redux';
-import { reducer } from './reducer';
+import  {  applyMiddleware, createStore } from 'redux';
+import reducer from './reducers'
 
-export default createStore(reducer, 0);
+
+
+export default createStore(reducer);
