@@ -1,5 +1,4 @@
-
-var React = require('react');
+import React from 'react';
 var Router = require('react-router');
 var Notes = require('./Notes/Notes');
 var helper = require('../utils/helper');
@@ -7,20 +6,20 @@ import { connect } from 'react-redux';
 
 import Bio from './Bio/Bio';
 
-//import { store } from '../store';
+import { store } from '../store';
 
-store.subscribe(() =>{
-    "use strict";
-    console.log("store change",store.getState())
-})
+// store.subscribe(() =>{
+//     "use strict";
+//     console.log("store change",store.getState())
+// })
 
 //store.dispatch({type:"ADD_NOTE",payload : 'note1'});
-store.dispatch({type:"CHANGE_ADDRESS",payload : 'address1'});
-store.dispatch({type:"CHANGE_ADDRESS",payload : 'address2'});
+// store.dispatch({type:"CHANGE_ADDRESS",payload : 'address1'});
+// store.dispatch({type:"CHANGE_ADDRESS",payload : 'address2'});
 
 
-var Profile = React.createClass({
-    getInitialState : function(){
+export class Profile extends React.Component{
+    getInitialState (){
         return {
             notes:['note1','note2','note3'],
             bio:{
@@ -28,8 +27,9 @@ var Profile = React.createClass({
                 address:'sydney'
             },
         }
-    },
-    componentDidMount : function(){
+    }
+
+    componentDidMount (){
         // helper.getGitHubInfo(this.props.params.username)
         //     .then(function(data){
         //         this.setState({
@@ -37,22 +37,22 @@ var Profile = React.createClass({
         //             repos:data.repos
         //         })
         //     }.bind(this))
-    },
-    componentWillUnmount : function(){
+    }
+    componentWillUnmount (){
         this.unbind('notes');
-    },
-    handleChangeAdddress : function(newAddress){
+    }
+    handleChangeAdddress (newAddress){
         this.setState({
             bio: Object.assign({}, this.state.bio, {address:newAddress}),
         })
-    },
-    handleAddNote: function(newNote){
+    }
+    handleAddNote(newNote){
         //this.state.notes = [...this.state.notes,newNote]; this will not work
         this.setState({
             notes:[...this.state.notes, newNote],
         })
-    },
-    render:function(){
+    }
+    render(){
         return (
             <div className="row">
                 <div className="col-md-6">
@@ -72,5 +72,4 @@ var Profile = React.createClass({
             </div>
         )
     }
-})
-module.exports = Profile;
+}

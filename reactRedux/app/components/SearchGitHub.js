@@ -1,18 +1,19 @@
-
-var React = require('react')
+import React from 'react';
 var Router = require('react-router');
+export class SearchGitHub extends React.Component{
+    // mixins:[Router.History],
 
-var SearchGitHub = React.createClass({
-    mixins:[Router.History],
-    handleSubmit:function(){
+    handleSubmit(){
     var username = this.userNameRef.value;
     this.userNameRef = '';
     this.history.pushState(null,"profile/"+username);
-    },
-    getRef:function(ref){
+    }
+
+    getRef(ref){
         this.userNameRef = ref;
-    },
-    render:function(){
+    }
+
+    render(){
         return(
             <div className="col-sm-12">
                 <form onSubmit={this.handleSubmit}>
@@ -26,7 +27,4 @@ var SearchGitHub = React.createClass({
             </div>
         )
     }
-
-})
-
-module.exports = SearchGitHub;
+}

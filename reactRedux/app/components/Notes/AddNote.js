@@ -1,25 +1,42 @@
+import React from 'react';
 
-var React=require('react');
+export class AddNote extends React.Component {
 
-var AddNote = React.createClass({
-setRef: function(ref){
+  constructor() {
+    super();
+  }
+
+  setRef(ref) {
     this.note = ref;
-},
-    handleSubmit: function(){
-    var newNote = this.note.value;
-    this.note.value ='';
-    this.props.addNote(newNote);
-    },
-    render:function(){
-    return (
-        <div className="input-group">
-        <input type="text" className="form-control" placeholder="Add New Note" ref={this.setRef}/>
-      <span className='input-btn-group'>
-              <button className="btn btn-default" type="button" onClick={this.handleSubmit}>submit </button>
-            </span>
-        </div>
-    )
-}
-});
+  };
 
-module.exports=AddNote;
+  handleSubmit() {
+    var newNote = this.note.value;
+    this.note.value = '';
+    this.props.addNote(newNote);
+  };
+
+  render() {
+    return (
+      < div
+        className="input-group">
+        < input
+          type="text"
+          className="form-control"
+          placeholder="Add New Note"
+          ref={this.setRef
+          }
+        />
+        < span
+          className='input-btn-group'>
+      < button
+        className="btn btn-default"
+        type="button"
+        onClick={this.handleSubmit
+        }>
+    submit </button></span></div>
+    )
+  }
+}
+
+
