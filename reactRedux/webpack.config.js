@@ -1,8 +1,8 @@
 var config = {
-    entry: './app/components/app.js',
+    entry: './public/src/index.js',
 
     output: {
-        path:`${__dirname}/build`,
+        path:`${__dirname}/public`,
         filename: 'bundle.js',
         publicPath:'/'
     },
